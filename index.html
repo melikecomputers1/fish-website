@@ -60,6 +60,7 @@ async function loadFish() {
                 <div class="info">
                     <h2>${item.type}</h2>
                     <div class="price">$${item.price.toFixed(2)}</div>
+                    <div class="bulk">Bulk 10: $${item.price.toFixed(2) * 10 * (1 - 0.2)}</div>
                 </div>
             </div>
         `;
