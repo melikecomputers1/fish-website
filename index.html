@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Fish Stock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        #fish-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .fish-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,.1);
+        }
+
+        .fish-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Available Fish</h1>
+
+<div id="fish-list"></div>
+
+<script>
+async function loadFish() {
+    const response = await fetch("fish.json");
+    const fish = await response.json();
+
+    const container = document.getElementById("fish-list");
+
+    fish.forEach(item => {
+        container.innerHTML += `
+            <div class="fish-card">
+                <img src="${item.image}" alt="${item.type}">
+                <div class="info">
+                    <h2>${item.type}</h2>
+                    <div class="price">$${item.price.toFixed(2)}</div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+loadFish();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+  {
+    "type": "Fancy Guppy",
+    "price": 5.00,
+    "image": "images/guppy.jpg"
+  },
+  {
+    "type": "Betta",
+    "price": 15.00,
+    "image": "images/betta.jpg"
+  },
+  {
+    "type": "Neon Tetra",
+    "price": 3.50,
+    "image": "images/neon-tetra.jpg"
+  }
+]
